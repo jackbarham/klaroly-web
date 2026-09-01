@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const title = 'Pricing | Klaroly'
+const description =
+  'Klaroly is in development. Early access pricing is expected to be around £20 a month or £120 a year, including VAT, with a free trial.'
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="mx-auto max-w-4xl px-5 sm:px-8">
+    <section class="pt-16 pb-2 sm:pt-24">
+      <h1 class="text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl">
+        Pricing
+      </h1>
+      <p
+        class="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)] dark:text-[var(--color-muted-dark)]"
+      >
+        Klaroly is not open yet, so this is what we are planning rather than what
+        you can buy today. We would rather say that plainly than put a fake button
+        on a page.
+      </p>
+    </section>
+
+    <div class="prose max-w-2xl">
+      <h2>What we expect it to cost</h2>
+      <p>
+        <strong>Around £20 a month, or £120 a year</strong>, including VAT. One price,
+        everything in it. No per-booking fee, no commission on what your clients pay
+        you, no percentage of your wedding season.
+      </p>
+      <p>
+        There will be a free trial, long enough to put a real booking through it
+        rather than just click around.
+      </p>
+
+      <h2>Why one price</h2>
+      <p>
+        Tiered pricing on a tool like this usually means the useful half is behind
+        the expensive tier and you spend your first month working out which one
+        you are. We would rather charge one fair price and let you get on with it.
+      </p>
+
+      <h2>What we are still deciding</h2>
+      <ul>
+        <li>Whether the annual price stays at £120</li>
+        <li>What early access members get, and whether that price is held</li>
+        <li>
+          Whether there is a smaller plan for artists doing a handful of weddings a
+          year
+        </li>
+      </ul>
+      <p>
+        If you have a view on any of that, we would genuinely like to hear it.
+        That is not a polite line: pricing is the single thing we are least certain
+        about, and artists telling us what a tool like this is worth to them is more
+        useful than any amount of research.
+      </p>
+      <p><a href="/contact">Tell us what you think</a></p>
+
+      <h2>About your clients' money</h2>
+      <p>
+        Klaroly takes nothing from what your brides pay you. Your fees are yours.
+        The subscription is the only money that comes to us.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+const year = new Date().getFullYear()
+---
+
+<footer
+  class="mt-24 border-t border-[var(--color-line)] dark:border-[var(--color-line-dark)]"
+>
+  <div
+    class="mx-auto max-w-4xl px-5 py-10 text-sm text-[var(--color-muted)] sm:px-8 dark:text-[var(--color-muted-dark)]"
+  >
+    <div class="flex flex-wrap gap-x-6 gap-y-2">
+      <a href="/features" class="hover:text-[var(--color-ink)] dark:hover:text-[var(--color-ink-dark)]">Features</a>
+      <a href="/pricing" class="hover:text-[var(--color-ink)] dark:hover:text-[var(--color-ink-dark)]">Pricing</a>
+      <a href="/about" class="hover:text-[var(--color-ink)] dark:hover:text-[var(--color-ink-dark)]">About</a>
+      <a href="/contact" class="hover:text-[var(--color-ink)] dark:hover:text-[var(--color-ink-dark)]">Contact</a>
+      <a href="/privacy" class="hover:text-[var(--color-ink)] dark:hover:text-[var(--color-ink-dark)]">Privacy</a>
+      <a href="/terms" class="hover:text-[var(--color-ink)] dark:hover:text-[var(--color-ink-dark)]">Terms</a>
+    </div>
+
+    <p class="mt-6 leading-relaxed">
+      Klaroly is a product of Sunday South Ltd, registered in England and Wales.
+      <br />
+      <!-- TODO: company number and registered office, per ticket K-01 -->
+      Company number 00000000. Registered office to be confirmed.
+    </p>
+
+    <p class="mt-4">&copy; {year} Sunday South Ltd</p>
+  </div>
+</footer>

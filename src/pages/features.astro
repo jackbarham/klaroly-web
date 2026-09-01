@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const title = 'Features | Klaroly booking app for makeup artists'
+const description =
+  'Enquiries, a clash-aware calendar, rate cards, digital wedding makeup contracts, invoices, deposits and client notes. See what Klaroly does.'
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="mx-auto max-w-4xl px-5 sm:px-8">
+    <section class="pt-16 pb-2 sm:pt-24">
+      <h1 class="text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl">
+        What Klaroly does
+      </h1>
+      <p
+        class="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)] dark:text-[var(--color-muted-dark)]"
+      >
+        A tour of the parts. Everything here is being built now, and the order is
+        being set by the artists we are talking to.
+      </p>
+    </section>
+
+    <div class="prose max-w-2xl">
+      <h2>Enquiries</h2>
+      <p>
+        Most bookings start as a message you read while your hands are full.
+        Klaroly gives enquiries their own place instead of leaving them in an
+        inbox.
+      </p>
+      <ul>
+        <li>Add an enquiry in a few taps: name, date, venue, how she found you</li>
+        <li>It goes on the calendar as a soft hold straight away</li>
+        <li>
+          Clash warnings cover enquiries, not just confirmed bookings, so you know
+          a date is getting busy before you promise it to somebody
+        </li>
+        <li>Turn an enquiry into a booking without typing any of it again</li>
+      </ul>
+
+      <h2>Bookings and the calendar</h2>
+      <p>One booking holds the whole job.</p>
+      <ul>
+        <li>The bride, her contact details, and anybody else involved</li>
+        <li>Trial date and wedding date, with times and call times</li>
+        <li>The venue, with travel time and distance worked out for you</li>
+        <li>What was agreed, what it costs, what has been paid</li>
+        <li>List view or calendar view, whichever suits the moment</li>
+      </ul>
+
+      <h2>Your rate card</h2>
+      <p>Set your prices once and stop working them out on a calculator.</p>
+      <ul>
+        <li>
+          A line for every service you offer: bride, bridesmaid, mother of the
+          bride, children, gents, whatever you call yours
+        </li>
+        <li>
+          Travel, early starts and hotel nights as their own lines, because they
+          are their own costs
+        </li>
+        <li>Override any price on any booking when a job is not standard</li>
+        <li>
+          Prices are recorded on the booking as they were agreed, so raising your
+          rates next year does not quietly rewrite last year
+        </li>
+      </ul>
+
+      <h2>Contracts</h2>
+      <p>The part most artists put off.</p>
+      <ul>
+        <li>A proper agreement, with your terms and the booking details filled in</li>
+        <li>Sent to the bride as a link, nothing for her to download or install</li>
+        <li>She reads it, types her full name, ticks the box, submits</li>
+        <li>Both of you get a signed PDF immediately</li>
+        <li>
+          A full record of when it was sent, opened and signed, kept in case it is
+          ever needed
+        </li>
+      </ul>
+
+      <h2>Invoices, deposits and balances</h2>
+      <ul>
+        <li>
+          Deposit on booking, balance before the day, which is how most artists
+          already work
+        </li>
+        <li>Klaroly tracks what is outstanding and how close the date is</li>
+        <li>Reminders go out on their own until it is paid, and stop when it is</li>
+        <li>
+          Record a bank transfer in one tap, because most of your clients will pay
+          that way
+        </li>
+        <li>
+          Agreed to wait? Snooze the reminders without pretending the invoice is
+          paid
+        </li>
+      </ul>
+
+      <h2>Client notes and photos</h2>
+      <ul>
+        <li>Notes as a dated stream, so you can see how a booking developed</li>
+        <li>Skin type, allergies, sensitivities, the look she wants</li>
+        <li>Trial photos and wedding photos at full resolution, kept with the booking</li>
+        <li>Add a reminder to any note</li>
+      </ul>
+
+      <h2>On your phone, and on your desk</h2>
+      <p>
+        Klaroly is one product with three faces: an iPhone app, an Android app,
+        and a web version for the desktop. The same data in all three.
+      </p>
+      <p>
+        The phone is for the ninety per cent that is tap, tap, done. The desktop
+        is for setting up your templates and doing your month end, which nobody
+        wants to do with their thumbs.
+      </p>
+
+      <h2>What we are deliberately not doing</h2>
+      <ul>
+        <li>
+          <strong>Not a directory.</strong> Klaroly does not send you clients and does
+          not rank you against other artists. It is your tool, not a marketplace.
+        </li>
+        <li>
+          <strong>Not a form builder.</strong> You will never be asked to design a form.
+          Sections turn on and off, that is all.
+        </li>
+        <li>
+          <strong>Not something your clients log into.</strong> Your brides get a link
+          when they need one. Nobody is asked to create an account to book a face.
+        </li>
+      </ul>
+
+      <p><a href="/contact">Join the early access list</a></p>
+    </div>
+  </div>
+</BaseLayout>

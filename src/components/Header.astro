@@ -1,0 +1,56 @@
+---
+const links = [
+  { href: '/features', label: 'Features' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' }
+]
+
+const path = Astro.url.pathname
+const isCurrent = (href: string) => path === href || path === `${href}/`
+---
+
+<header
+  class="border-b border-[var(--color-line)] dark:border-[var(--color-line-dark)]"
+>
+  <div class="mx-auto flex max-w-4xl items-center justify-between px-5 py-5 sm:px-8">
+    <a
+      href="/"
+      class="text-lg font-semibold tracking-tight"
+      aria-label="Klaroly home"
+    >
+      Klaroly
+    </a>
+
+    <!-- CSS-only menu. No JavaScript on this site. -->
+    <input id="nav-toggle" type="checkbox" class="peer sr-only" />
+    <label
+      for="nav-toggle"
+      class="cursor-pointer rounded-md border border-[var(--color-line)] px-3 py-1.5 text-sm select-none sm:hidden dark:border-[var(--color-line-dark)]"
+    >
+      Menu
+    </label>
+
+    <nav
+      aria-label="Main"
+      class="absolute inset-x-0 top-[73px] z-40 hidden flex-col gap-1 border-b border-[var(--color-line)] bg-[var(--color-paper)] px-5 pb-5 peer-checked:flex sm:static sm:z-auto sm:flex sm:flex-row sm:items-center sm:gap-7 sm:border-0 sm:bg-transparent sm:p-0 dark:border-[var(--color-line-dark)] dark:bg-[var(--color-paper-dark)]"
+    >
+      {
+        links.map(link => (
+          <a
+            href={link.href}
+            aria-current={isCurrent(link.href) ? 'page' : undefined}
+            class:list={[
+              'py-2 text-[0.9375rem] transition-colors sm:py-0',
+              isCurrent(link.href)
+                ? 'text-[var(--color-ink)] dark:text-[var(--color-ink-dark)]'
+                : 'text-[var(--color-muted)] hover:text-[var(--color-ink)] dark:text-[var(--color-muted-dark)] dark:hover:text-[var(--color-ink-dark)]'
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

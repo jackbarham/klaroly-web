@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const title = 'Contact and early access | Klaroly'
+const description =
+  'Join the Klaroly early access list, or get in touch. We are talking to wedding makeup artists now about what the product should do.'
+
+// TODO: set this once the form handler exists. Ticket K-12.
+const FORM_ENDPOINT = ''
+
+const inputClass =
+  'mt-1.5 w-full rounded-md border border-[var(--color-line)] bg-transparent px-3.5 py-2.5 text-[1.0625rem] outline-none focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] dark:border-[var(--color-line-dark)] dark:focus:border-[var(--color-accent-dark)] dark:focus:ring-[var(--color-accent-dark)]'
+const labelClass = 'block text-sm font-medium'
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="mx-auto max-w-4xl px-5 sm:px-8">
+    <section class="pt-16 pb-2 sm:pt-24">
+      <h1 class="text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl">
+        Get in touch
+      </h1>
+    </section>
+
+    <div class="prose max-w-2xl">
+      <h2>Early access</h2>
+      <p>
+        We are opening Klaroly to a small group of artists first. Leave your email
+        and we will let you know when it is ready, and ask you a few questions
+        along the way if you do not mind.
+      </p>
+    </div>
+
+    <form
+      action={FORM_ENDPOINT}
+      method="post"
+      class="mt-8 max-w-md space-y-5"
+      aria-label="Early access sign up"
+    >
+      <div>
+        <label class={labelClass} for="name">Name</label>
+        <input class={inputClass} id="name" name="name" type="text" autocomplete="name" required />
+      </div>
+
+      <div>
+        <label class={labelClass} for="email">Email</label>
+        <input class={inputClass} id="email" name="email" type="email" autocomplete="email" required />
+      </div>
+
+      <div>
+        <label class={labelClass} for="weddings">
+          Roughly how many weddings do you do a year?
+          <span class="font-normal text-[var(--color-muted)] dark:text-[var(--color-muted-dark)]">
+            Optional
+          </span>
+        </label>
+        <input class={inputClass} id="weddings" name="weddings" type="number" min="0" inputmode="numeric" />
+      </div>
+
+      <button
+        type="submit"
+        class="rounded-md bg-[var(--color-ink)] px-5 py-2.5 text-[1.0625rem] font-medium text-[var(--color-paper)] transition-opacity hover:opacity-90 dark:bg-[var(--color-ink-dark)] dark:text-[var(--color-paper-dark)]"
+      >
+        Join the list
+      </button>
+    </form>
+
+    <div class="prose mt-10 max-w-2xl">
+      <p>
+        No newsletter, no marketing, no selling your address to anybody. Just
+        Klaroly news, and not much of it.
+      </p>
+
+      <h2>Tell us what you need</h2>
+      <p>
+        If you are a wedding makeup or hair artist, we would like fifteen minutes
+        of your time more than we would like your email address. What takes you
+        longest, what you have given up on, what you tried and abandoned, what you
+        would pay for. All of it is useful and none of it is a sales call.
+      </p>
+      <p><a href="mailto:hello@klaroly.com">hello@klaroly.com</a></p>
+
+      <h2>Everything else</h2>
+      <p>
+        Press, partnerships, or you have built something similar and want to
+        compare notes: same address.
+      </p>
+      <p><a href="mailto:hello@klaroly.com">hello@klaroly.com</a></p>
+    </div>
+  </div>
+</BaseLayout>

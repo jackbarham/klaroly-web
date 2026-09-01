@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  --color-ink: #16150f;
+  --color-paper: #faf8f4;
+  --color-muted: #6b6759;
+  --color-line: #e2ddd2;
+  --color-accent: #8a5a3b;
+
+  --color-ink-dark: #ece9e2;
+  --color-paper-dark: #14140f;
+  --color-muted-dark: #9c968a;
+  --color-line-dark: #2c2b24;
+  --color-accent-dark: #c99873;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--color-paper-dark);
+    color: var(--color-ink-dark);
+  }
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+/* Prose defaults, hand rolled so there is no typography plugin to carry */
+.prose h2 {
+  @apply mt-14 mb-4 text-2xl font-semibold tracking-tight sm:text-3xl;
+}
+
+.prose h3 {
+  @apply mt-10 mb-3 text-lg font-semibold tracking-tight sm:text-xl;
+}
+
+.prose p {
+  @apply mb-5 text-[1.0625rem] leading-relaxed text-[var(--color-muted)] dark:text-[var(--color-muted-dark)];
+}
+
+.prose p strong {
+  @apply font-semibold text-[var(--color-ink)] dark:text-[var(--color-ink-dark)];
+}
+
+.prose ul {
+  @apply mb-6 space-y-2.5 pl-0;
+}
+
+.prose li {
+  @apply relative pl-6 text-[1.0625rem] leading-relaxed text-[var(--color-muted)] dark:text-[var(--color-muted-dark)];
+}
+
+.prose li::before {
+  content: "";
+  @apply absolute top-[0.7em] left-0 h-1.5 w-1.5 rounded-full bg-[var(--color-accent)] dark:bg-[var(--color-accent-dark)];
+}
+
+.prose li strong {
+  @apply font-semibold text-[var(--color-ink)] dark:text-[var(--color-ink-dark)];
+}
+
+.prose a {
+  @apply underline decoration-[var(--color-accent)] decoration-2 underline-offset-4 hover:decoration-[3px] dark:decoration-[var(--color-accent-dark)];
+}
+
+.prose em {
+  @apply text-[var(--color-muted)] italic dark:text-[var(--color-muted-dark)];
+}

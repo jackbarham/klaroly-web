@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const title = 'About | Klaroly'
+const description =
+  'Klaroly is built by Sunday South, a UK studio, alongside a working wedding makeup artist. Here is why we are building it.'
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="mx-auto max-w-4xl px-5 sm:px-8">
+    <section class="pt-16 pb-2 sm:pt-24">
+      <h1 class="text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl">
+        Why we are building this
+      </h1>
+      <p
+        class="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)] dark:text-[var(--color-muted-dark)]"
+      >
+        Klaroly started with a wedding makeup artist complaining about her admin.
+      </p>
+    </section>
+
+    <div class="prose max-w-2xl">
+      <p>
+        Not about the work. The work is the good bit. About the twelve places a
+        booking lives before it becomes a wedding: the Instagram message, the
+        email, the note in her phone, the calendar entry, the contract template
+        she keeps meaning to update, the invoice, the reminder she forgot to send.
+      </p>
+      <p>
+        There is software for this. Most of it was built for salons, where the
+        client comes to you and books a forty-minute slot. A wedding is a
+        different shape entirely. It is booked eighteen months out, it involves
+        five people, it happens somewhere you have to drive to at five in the
+        morning, and the money arrives in two pieces months apart. Bending salon
+        software around that is possible. It is just not much fun.
+      </p>
+      <p>So we are building something for the actual shape of the job.</p>
+
+      <h2>Who is behind it</h2>
+      <p>
+        Klaroly is made by <strong>Sunday South</strong>, a small UK studio that has
+        been building web and mobile products for other people for fifteen years.
+        This one is ours.
+      </p>
+      <p>
+        It is being designed alongside a working wedding makeup artist, who is the
+        reason any of the details above are right, and tested with other artists
+        who have kindly agreed to tell us when we have got something wrong.
+      </p>
+
+      <h2>How we are building it</h2>
+      <ul>
+        <li>
+          <strong>Slowly enough to get it right, and in public.</strong> We are talking
+          to artists before writing the features, not after.
+        </li>
+        <li>
+          <strong>Small on purpose.</strong> We would rather do the booking, contract
+          and invoice side properly than do nine things adequately. Things we have
+          deliberately left out are left out, not forgotten.
+        </li>
+        <li>
+          <strong>Not funded by anybody.</strong> No investors, no growth targets, no
+          pressure to add features nobody asked for. It is paid for by the people who
+          use it, which keeps the incentives simple.
+        </li>
+      </ul>
+
+      <h2>Where we are going</h2>
+      <p>
+        Wedding makeup first, then hair, then the other people who turn up at a
+        wedding with a car full of kit. The problems are close enough to share a
+        product and different enough to be worth doing carefully, one at a time.
+      </p>
+      <p><a href="/contact">Get in touch</a></p>
+    </div>
+  </div>
+</BaseLayout>

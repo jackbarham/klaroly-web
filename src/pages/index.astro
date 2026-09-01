@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const title = 'Klaroly | Booking software for wedding makeup artists'
+const description =
+  'Enquiries, bookings, contracts and invoices for wedding makeup artists, in one app. Built for the phone, because that is where the work happens. Join the early access list.'
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.klaroly.com/#organisation',
+      name: 'Sunday South Ltd',
+      url: 'https://www.klaroly.com',
+      email: 'hello@klaroly.com',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'GB'
+      }
+    },
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Klaroly',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'iOS, Android, Web',
+      description:
+        'Booking, contract and invoicing software for wedding makeup artists.',
+      publisher: { '@id': 'https://www.klaroly.com/#organisation' }
+    }
+  ]
+}
+---
+
+<BaseLayout title={title} description={description}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(schema)}
+  />
+
+  <div class="mx-auto max-w-4xl px-5 sm:px-8">
+    <section class="pt-16 pb-4 sm:pt-24">
+      <h1
+        class="max-w-2xl text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl"
+      >
+        Booking software for wedding makeup artists
+      </h1>
+
+      <p
+        class="mt-7 max-w-xl text-xl leading-relaxed text-[var(--color-muted)] dark:text-[var(--color-muted-dark)]"
+      >
+        You did not become a makeup artist to chase deposits.
+      </p>
+
+      <div class="prose mt-6 max-w-2xl">
+        <p>
+          Klaroly keeps the admin side of a wedding makeup business in one place:
+          the enquiries, the dates, the quotes, the contracts, the invoices and
+          the notes about who wants what. It is built for the phone first,
+          because that is where you actually answer an enquiry, usually while
+          doing something else.
+        </p>
+        <p>
+          <strong>We are building it now, with working artists.</strong>
+          <a href="/contact">Join the early access list</a> and we will let you know
+          when it opens.
+        </p>
+      </div>
+    </section>
+
+    <div class="prose max-w-2xl">
+      <h2>The bit nobody mentions at makeup school</h2>
+      <p>
+        A wedding makeup artist runs a small business with a spreadsheet, a notes
+        app, a calendar, a template document she copies and pastes, and about
+        four hundred unread Instagram messages. It works, right up until two
+        brides pick the same Saturday in June and nobody notices until March.
+      </p>
+      <p>
+        The admin is not hard. It is just endless, and it happens in the gaps: on
+        a train, between clients, at half past ten at night.
+      </p>
+
+      <h2>What Klaroly does about it</h2>
+      <ul>
+        <li>
+          <strong>Every enquiry in one list.</strong> An enquiry comes in, you tap
+          it in, it goes on your calendar as a soft hold. Now when the next bride
+          asks about that Saturday, you know.
+        </li>
+        <li>
+          <strong>Bookings that hold everything.</strong> The bride's name, the venue,
+          the trial date, the wedding date, the call time, what she wants, what you
+          agreed, what she has paid and what she has not.
+        </li>
+        <li>
+          <strong>Quotes from your own rate card.</strong> Set your prices once. Bride,
+          bridesmaid, mother of the bride, children, gents, travel, early start, hotel
+          night. Adjust any of them on any booking when the job calls for it.
+        </li>
+        <li>
+          <strong>Contracts that get signed.</strong> A proper agreement sent as a link.
+          She reads it, types her name, ticks the box, signs it. No printing, no scanning,
+          no photograph of a signature taken at an angle.
+        </li>
+        <li>
+          <strong>Invoices, deposits and balances.</strong> Deposit now, balance before
+          the day. Klaroly knows what is outstanding and reminds her so you do not have
+          to write that message again.
+        </li>
+        <li>
+          <strong>Notes you can actually find.</strong> Skin type, allergies, the reference
+          photos, what went well at the trial, what her mum said. Attached to the booking,
+          not scattered across three apps.
+        </li>
+      </ul>
+
+      <h2>Built for a 5am call time</h2>
+      <p>
+        Weddings start early and venues have terrible signal. Klaroly keeps your
+        day on your phone whether or not there is any reception: the addresses,
+        the call times, the notes, the lot. The desktop version is there for the
+        evening admin, when you have a keyboard and a cup of tea.
+      </p>
+
+      <h2>Who it is for</h2>
+      <p>
+        Wedding and bridal makeup artists in the UK, whether that is forty
+        weddings a year or four. Hair and makeup artists too. If you take
+        bookings for a date, travel to somewhere else to do them, and would like
+        to stop writing the same email, this is aimed at you.
+      </p>
+      <p>
+        We are starting with wedding makeup deliberately, because building for
+        everybody at once is how software ends up suiting nobody.
+      </p>
+
+      <h2>Be one of the first</h2>
+      <p>
+        We are talking to working artists now about what matters and what does
+        not. If you would like a say in that, or just want to know when it opens,
+        leave your email.
+      </p>
+      <p><a href="/contact">Join the early access list</a></p>
+    </div>
+  </div>
+</BaseLayout>
