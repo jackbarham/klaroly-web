@@ -27,6 +27,9 @@ export const site = {
 
   email: 'hello@klaroly.com',
 
+  /** Login link in the header. Placeholder until the app exists. */
+  appLoginUrl: 'https://app.klaroly.com/login',
+
   /** Default social share image, 1200 x 630. Lives in public/. */
   ogImage: {
     path: '/og.png',

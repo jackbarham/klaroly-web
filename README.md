@@ -4,7 +4,7 @@ Marketing site for Klaroly, booking software for wedding makeup artists.
 
 **Live at [www.klaroly.com](https://www.klaroly.com)**
 
-Astro and Tailwind CSS, statically built, no JavaScript shipped to the browser.
+Astro and Tailwind CSS, statically built. The only JavaScript shipped is the header's scroll and menu behaviour.
 
 ## Running it locally
 

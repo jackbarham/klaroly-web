@@ -16,7 +16,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     build: {
-      cssMinify: 'lightningcss'
+      cssMinify: 'lightningcss',
+      // Always emit scripts as files. Inline scripts are blocked by the CSP
+      // in public/_headers (script-src 'self').
+      assetsInlineLimit: 0
     }
   }
 })

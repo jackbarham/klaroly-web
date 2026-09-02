@@ -14,6 +14,14 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  /* Fixed header height. Header.astro and BaseLayout.astro both read this. */
+  --header-h: 4rem;
+}
+
+@media (width >= 48rem) {
+  html {
+    --header-h: 5rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

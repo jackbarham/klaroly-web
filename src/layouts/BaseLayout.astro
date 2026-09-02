@@ -95,10 +95,10 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
     <slot name="head" />
   </head>
 
-  <body class="flex min-h-dvh flex-col font-sans antialiased">
+  <body class="flex min-h-dvh flex-col pt-[var(--header-h)] font-sans antialiased">
     <a
       href="#main"
-      class="sr-only rounded-md bg-[var(--color-ink)] px-4 py-2 text-[var(--color-paper)] focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50"
+      class="sr-only rounded-md bg-[var(--color-ink)] px-4 py-2 text-[var(--color-paper)] focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60]"
     >
       Skip to content
     </a>

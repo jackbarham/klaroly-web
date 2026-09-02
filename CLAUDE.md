@@ -1,7 +1,7 @@
 # Klaroly marketing site
 
 Static Astro 7 + Tailwind 4 site for Klaroly, booking software for wedding makeup
-artists. No client-side JavaScript. Deployed to Cloudflare Workers (static assets)
+artists. Near-zero client-side JavaScript (header only). Deployed to Cloudflare Workers (static assets)
 on push to `main`. Live at https://www.klaroly.com.
 
 ## Status
@@ -100,8 +100,10 @@ Each page in `src/pages/` must pass `title` and `description` to `BaseLayout`.
 - Company: Sunday South Ltd, company number 17185159, 230 Vauxhall Bridge Road,
   London, SW1V 1AU. Set in `src/site.ts`; footer and JSON-LD read from there.
 - Contact address is hello@klaroly.com, from `src/site.ts`. Do not hard-code it.
-- No JavaScript in the browser. The nav menu is CSS-only. Do not add scripts
-  for analytics, forms, or anything else without discussing it first.
+- The only client-side JavaScript is the header script in
+  `src/components/Header.astro` (scroll hide/show, mobile menu). Do not add
+  scripts for analytics, forms, or anything else without discussing it first.
+  The CSP in `public/_headers` allows same-origin scripts only.
 - Tailwind utility classes inline; colours via the CSS variables in
   `src/styles/global.css`. Body copy uses the `prose` class.
 - Light mode only. No `dark:` variants, no dark colour tokens, and the root
