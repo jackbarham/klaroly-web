@@ -1,99 +1,87 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import PageHeader from '../components/PageHeader.astro'
 import EarlyAccessForm from '../components/EarlyAccessForm.astro'
+import { site } from '../site'
+import { softwareApplication } from '../schema'
 
-const title = 'Pricing | Klaroly'
-const description =
-  'Klaroly is in development. Early access pricing is £19 a month, or £99 a year instead of £228. One price with everything in it, and a free trial.'
+const { monthly, yearly, yearlyFull } = site.pricing
+
+const title = 'Pricing | Klaroly booking software for makeup artists'
+const description = `Klaroly is in development. Early access pricing is £${monthly} a month, or £${yearly} a year instead of £${yearlyFull}. One price with everything in it, and a free trial.`
+
+const muted = 'text-[var(--color-muted)]'
 ---
 
-<BaseLayout title={title} description={description}>
-  <div class="mx-auto max-w-4xl px-5 sm:px-8">
-    <section class="pt-16 pb-2 sm:pt-24">
-      <h1 class="text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl">
-        Pricing
-      </h1>
-      <p
-        class="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)] dark:text-[var(--color-muted-dark)]"
+<BaseLayout title={title} description={description} schema={[softwareApplication(true)]}>
+  <PageHeader title="Pricing">
+    Klaroly is not open yet, so this is what is planned rather than what you
+    can buy today. We would rather say that plainly than put a fake button on
+    a page.
+  </PageHeader>
+
+  <div
+    class="mt-10 max-w-2xl rounded-lg border border-[var(--color-line)] p-6 sm:p-8"
+  >
+    <p class="text-3xl font-semibold tracking-tight sm:text-4xl">
+      £{monthly} <span class:list={['text-xl font-normal', muted]}>a month</span>
+    </p>
+    <p class:list={['mt-2 text-[1.0625rem] leading-relaxed', muted]}>
+      One price, everything in it. No per-booking fee, no commission on what
+      your clients pay you, no percentage of your wedding season.
+    </p>
+
+    <hr class="my-7 border-[var(--color-line)]" />
+
+    <p class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+      <span class="sr-only">Normally</span>
+      <s class:list={['text-2xl sm:text-3xl', muted]}>£{yearlyFull}</s>
+      <span class="sr-only">, early access price</span>
+      <span
+        class="text-3xl font-semibold tracking-tight text-[var(--color-accent)] sm:text-4xl"
+        >£{yearly}</span
       >
-        Klaroly is not open yet, so this is what is planned rather than what you
-        can buy today. We would rather say that plainly than put a fake button on
-        a page.
-      </p>
-    </section>
+      <span class:list={['text-xl', muted]}>a year</span>
+    </p>
+    <p class="mt-2 text-[1.0625rem] font-medium">
+      Early access price, held after launch.
+    </p>
+    <p class:list={['mt-2 text-[1.0625rem] leading-relaxed', muted]}>
+      That is the deal, and it is the reason to join now. Pay for the year up
+      front, help us finish it, and you keep that price.
+    </p>
 
-    <div
-      class="mt-10 max-w-2xl rounded-lg border border-[var(--color-line)] p-6 sm:p-8 dark:border-[var(--color-line-dark)]"
-    >
-      <p class="text-3xl font-semibold tracking-tight sm:text-4xl">
-        £19 <span class="text-xl font-normal text-[var(--color-muted)] dark:text-[var(--color-muted-dark)]">a month</span>
-      </p>
-      <p
-        class="mt-2 text-[1.0625rem] leading-relaxed text-[var(--color-muted)] dark:text-[var(--color-muted-dark)]"
-      >
-        One price, everything in it. No per-booking fee, no commission on what
-        your clients pay you, no percentage of your wedding season.
-      </p>
-
-      <hr class="my-7 border-[var(--color-line)] dark:border-[var(--color-line-dark)]" />
-
-      <p class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <span class="sr-only">Normally</span>
-        <s
-          class="text-2xl text-[var(--color-muted)] sm:text-3xl dark:text-[var(--color-muted-dark)]"
-          >£228</s
-        >
-        <span class="sr-only">, early access price</span>
-        <span
-          class="text-3xl font-semibold tracking-tight text-[var(--color-accent)] sm:text-4xl dark:text-[var(--color-accent-dark)]"
-          >£99</span
-        >
-        <span class="text-xl text-[var(--color-muted)] dark:text-[var(--color-muted-dark)]">a year</span>
-      </p>
-      <p class="mt-2 text-[1.0625rem] font-medium">
-        Early access price, held after launch.
-      </p>
-      <p
-        class="mt-2 text-[1.0625rem] leading-relaxed text-[var(--color-muted)] dark:text-[var(--color-muted-dark)]"
-      >
-        That is the deal, and it is the reason to join now. Pay for the year up
-        front, help us finish it, and you keep that price.
-      </p>
-
-      <p class="mt-6 text-xs text-[var(--color-muted)] dark:text-[var(--color-muted-dark)]">
-        Plus local taxes where applicable.
-      </p>
-    </div>
-
-    <div class="prose max-w-2xl">
-      <p class="mt-8">
-        There will be a free trial, long enough to put a real booking through it
-        rather than just click around.
-      </p>
-
-      <h2>Why one price</h2>
-      <p>
-        Tiered pricing on a tool like this usually means the useful half sits
-        behind the expensive tier and you spend your first month working out
-        which one you are. We would rather charge one fair price and let you get
-        on with it.
-      </p>
-
-      <h2>What early access gets you</h2>
-      <ul>
-        <li>An extended free trial</li>
-        <li>Free use of the beta while we finish it</li>
-        <li>Your early access price held after launch</li>
-        <li>A say in what gets built next</li>
-      </ul>
-
-      <h2>About your clients' money</h2>
-      <p>
-        Klaroly takes nothing from what your clients pay you. Your fees are
-        yours. The subscription is the only money that comes to us.
-      </p>
-    </div>
-
-    <EarlyAccessForm id="pricing" class="mt-2" />
+    <p class:list={['mt-6 text-xs', muted]}>Plus local taxes where applicable.</p>
   </div>
+
+  <div class="prose max-w-2xl">
+    <p class="mt-8">
+      There will be a free trial, long enough to put a real booking through it
+      rather than just click around.
+    </p>
+
+    <h2>Why one price</h2>
+    <p>
+      Tiered pricing on a tool like this usually means the useful half sits
+      behind the expensive tier and you spend your first month working out
+      which one you are. We would rather charge one fair price and let you get
+      on with it.
+    </p>
+
+    <h2>What early access gets you</h2>
+    <ul>
+      <li>An extended free trial</li>
+      <li>Free use of the beta while we finish it</li>
+      <li>Your early access price held after launch</li>
+      <li>A say in what gets built next</li>
+    </ul>
+
+    <h2>About your clients' money</h2>
+    <p>
+      Klaroly takes nothing from what your clients pay you. Your fees are
+      yours. The subscription is the only money that comes to us.
+    </p>
+  </div>
+
+  <EarlyAccessForm id="pricing" class="mt-2" />
 </BaseLayout>

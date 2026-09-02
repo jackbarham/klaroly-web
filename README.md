@@ -15,6 +15,7 @@ npm ci          # install
 npm run dev     # local server at localhost:4321
 npm run build   # static build into dist/
 npm run preview # serve the built site
+npm run images  # re-render the PNG icons and social image from src/assets
 ```
 
 ## Deploying

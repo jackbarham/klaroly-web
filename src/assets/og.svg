@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf8f4"/>
+  <!-- K mark, scaled from favicon.svg -->
+  <g transform="translate(96 96) scale(3)">
+    <rect width="32" height="32" rx="7" fill="#16150f"/>
+    <path d="M10 8v16M10 16.5 20 8M10 15.5 20 24" stroke="#faf8f4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <text x="216" y="168" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="56" font-weight="600" letter-spacing="-1.5" fill="#16150f">Klaroly</text>
+  <text font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="60" font-weight="600" letter-spacing="-1.5" fill="#16150f">
+    <tspan x="96" y="356">Booking software for</tspan>
+    <tspan x="96" y="428">wedding makeup artists</tspan>
+  </text>
+  <text x="96" y="510" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="28" fill="#6b6759">Enquiries, quotes, contracts and invoices in one place.</text>
+  <rect x="96" y="550" width="72" height="5" rx="2.5" fill="#8a5a3b"/>
+</svg>

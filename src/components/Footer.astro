@@ -1,37 +1,46 @@
 ---
+import { site } from '../site'
+
 const year = new Date().getFullYear()
+const links = [...site.nav, ...site.legalNav]
+const { company } = site
 ---
 
 <footer
-  class="mt-24 border-t border-[var(--color-line)] dark:border-[var(--color-line-dark)]"
+  class="mt-24 border-t border-[var(--color-line)]"
 >
   <div
-    class="mx-auto max-w-4xl px-5 py-10 text-sm text-[var(--color-muted)] sm:px-8 dark:text-[var(--color-muted-dark)]"
+    class="mx-auto max-w-4xl px-5 py-10 text-sm text-[var(--color-muted)] sm:px-8"
   >
-    <div class="flex flex-wrap gap-x-6 gap-y-2">
-      <a href="/features" class="hover:text-[var(--color-ink)] dark:hover:text-[var(--color-ink-dark)]">Features</a>
-      <a href="/pricing" class="hover:text-[var(--color-ink)] dark:hover:text-[var(--color-ink-dark)]">Pricing</a>
-      <a href="/about" class="hover:text-[var(--color-ink)] dark:hover:text-[var(--color-ink-dark)]">About</a>
-      <a href="/contact" class="hover:text-[var(--color-ink)] dark:hover:text-[var(--color-ink-dark)]">Contact</a>
-      <a href="/privacy" class="hover:text-[var(--color-ink)] dark:hover:text-[var(--color-ink-dark)]">Privacy</a>
-      <a href="/terms" class="hover:text-[var(--color-ink)] dark:hover:text-[var(--color-ink-dark)]">Terms</a>
-    </div>
+    <nav aria-label="Footer" class="flex flex-wrap gap-x-6 gap-y-2">
+      {
+        links.map(link => (
+          <a
+            href={link.href}
+            class="hover:text-[var(--color-ink)]"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
 
     <p class="mt-6">
       <a
-        href="mailto:hello@klaroly.com"
-        class="font-medium text-[var(--color-ink)] underline decoration-[var(--color-accent)] decoration-2 underline-offset-4 dark:text-[var(--color-ink-dark)] dark:decoration-[var(--color-accent-dark)]"
-        >hello@klaroly.com</a
+        href={`mailto:${site.email}`}
+        class="font-medium text-[var(--color-ink)] underline decoration-[var(--color-accent)] decoration-2 underline-offset-4"
+        >{site.email}</a
       >
     </p>
 
     <p class="mt-4 leading-relaxed">
-      Klaroly is a product of Sunday South Ltd, registered in England and Wales,
-      company number 17185159.
+      {site.name} is a product of {company.name}, registered in {company.jurisdiction},
+      company number {company.number}.
       <br />
-      Registered office: 230 Vauxhall Bridge Road, London, SW1V 1AU.
+      Registered office: {company.address.street}, {company.address.locality},
+      {company.address.postcode}.
     </p>
 
-    <p class="mt-4">&copy; {year} Sunday South Ltd</p>
+    <p class="mt-4">&copy; {year} {company.name}</p>
   </div>
 </footer>

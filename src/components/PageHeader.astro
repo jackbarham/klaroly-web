@@ -1,0 +1,28 @@
+---
+/**
+ * Page title block: the H1 and an optional lede underneath it.
+ * Every page opens with one of these so the top of the site stays consistent.
+ */
+interface Props {
+  /** The H1. Exactly one per page. */
+  title: string
+  /** Extra classes for the wrapping section, e.g. to adjust bottom padding. */
+  class?: string
+}
+
+const { title, class: className = '' } = Astro.props
+const hasLede = Astro.slots.has('default')
+---
+
+<section class:list={['pt-16 pb-2 sm:pt-24', className]}>
+  <h1 class="max-w-2xl text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl">
+    {title}
+  </h1>
+  {
+    hasLede && (
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
+        <slot />
+      </p>
+    )
+  }
+</section>

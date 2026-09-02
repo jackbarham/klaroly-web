@@ -1,46 +1,101 @@
 ---
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import { site, schemaIds } from '../site'
 import '../styles/global.css'
 
 interface Props {
   title: string
   description: string
+  /** Keep the page out of search results. Links on it are still followed. */
   noindex?: boolean
+  /** Extra JSON-LD nodes merged into the site-wide @graph. */
+  schema?: Record<string, unknown>[]
+  /** Override the social share image for this page. Path under public/. */
+  image?: { path: string; width: number; height: number; alt: string }
 }
 
-const { title, description, noindex = false } = Astro.props
+const {
+  title,
+  description,
+  noindex = false,
+  schema = [],
+  image = site.ogImage
+} = Astro.props
+
 const canonical = new URL(Astro.url.pathname, Astro.site).href
+const imageUrl = new URL(image.path, Astro.site).href
+
+// Organisation and WebSite appear on every page. Pages add product, offer or
+// FAQ nodes through the `schema` prop and reference these by @id.
+const graph = [
+  {
+    '@type': 'Organization',
+    '@id': schemaIds.organisation,
+    name: site.company.name,
+    legalName: site.company.name,
+    url: site.url,
+    email: site.email,
+    logo: new URL('/icon-512.png', Astro.site).href,
+    brand: { '@type': 'Brand', name: site.name },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: site.company.address.street,
+      addressLocality: site.company.address.locality,
+      postalCode: site.company.address.postcode,
+      addressCountry: site.company.address.country
+    }
+  },
+  {
+    '@type': 'WebSite',
+    '@id': schemaIds.website,
+    name: site.name,
+    url: site.url,
+    inLanguage: 'en-GB',
+    publisher: { '@id': schemaIds.organisation }
+  },
+  ...schema
+]
+
+const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })
 ---
 
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" style="color-scheme: light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
-    <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#14140f" media="(prefers-color-scheme: dark)" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#faf8f4" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Klaroly" />
-    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content={site.locale} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content={String(image.width)} />
+    <meta property="og:image:height" content={String(image.height)} />
+    <meta property="og:image:alt" content={image.alt} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={image.alt} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script type="application/ld+json" set:html={jsonLd} />
     <slot name="head" />
   </head>
 
-  <body class="font-sans antialiased">
+  <body class="flex min-h-dvh flex-col font-sans antialiased">
     <a
       href="#main"
       class="sr-only rounded-md bg-[var(--color-ink)] px-4 py-2 text-[var(--color-paper)] focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50"
@@ -48,7 +103,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
       Skip to content
     </a>
     <Header />
-    <main id="main">
+    <main id="main" class="mx-auto w-full max-w-4xl flex-1 px-5 sm:px-8">
       <slot />
     </main>
     <Footer />

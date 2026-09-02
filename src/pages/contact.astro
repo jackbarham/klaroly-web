@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import PageHeader from '../components/PageHeader.astro'
 import EarlyAccessForm from '../components/EarlyAccessForm.astro'
 
 const title = 'Contact and early access | Klaroly'
@@ -8,37 +9,28 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="mx-auto max-w-4xl px-5 sm:px-8">
-    <section class="pt-16 pb-2 sm:pt-24">
-      <h1 class="text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl">
-        Early access
-      </h1>
-      <p
-        class="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)] dark:text-[var(--color-muted-dark)]"
-      >
-        Leave your email and we will let you know when Klaroly opens.
-      </p>
-    </section>
+  <PageHeader title="Early access">
+    Leave your email and we will let you know when Klaroly opens.
+  </PageHeader>
 
-    <EarlyAccessForm id="contact" note={false} class="mt-8" />
+  <EarlyAccessForm id="contact" note={false} class="mt-8" />
 
-    <div class="prose mt-10 max-w-2xl">
-      <p>
-        Everyone who joins gets an extended free trial, free use of the beta
-        while we finish it, and their early access price held after launch.
-      </p>
+  <div class="prose mt-10 max-w-2xl">
+    <p>
+      Everyone who joins gets an extended free trial, free use of the beta
+      while we finish it, and their early access price held after launch.
+    </p>
 
-      <h2>Tell us what you need</h2>
-      <p>
-        If you are a wedding hair or makeup artist, we would like fifteen minutes
-        of your time more than we would like your email address. What takes you
-        longest, what you have given up on, what you tried and abandoned, what
-        you would pay for. All of it is useful and none of it is a sales call.
-      </p>
-      <p>
-        Press, partnerships, or you have built something similar and want to
-        compare notes: same address, in the footer.
-      </p>
-    </div>
+    <h2>Tell us what you need</h2>
+    <p>
+      If you are a wedding hair or makeup artist, we would like fifteen minutes
+      of your time more than we would like your email address. What takes you
+      longest, what you have given up on, what you tried and abandoned, what
+      you would pay for. All of it is useful and none of it is a sales call.
+    </p>
+    <p>
+      Press, partnerships, or you have built something similar and want to
+      compare notes: same address, in the footer.
+    </p>
   </div>
 </BaseLayout>

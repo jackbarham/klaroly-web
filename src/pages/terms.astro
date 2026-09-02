@@ -1,27 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import PageHeader from '../components/PageHeader.astro'
+import { site } from '../site'
 ---
 
-<BaseLayout
-  title="Terms | Klaroly"
-  description="Klaroly terms of use."
-  noindex={true}
->
-  <div class="mx-auto max-w-4xl px-5 sm:px-8">
-    <section class="pt-16 pb-2 sm:pt-24">
-      <h1 class="text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl">
-        Terms
-      </h1>
-    </section>
-    <div class="prose max-w-2xl">
-      <p>
-        Coming shortly. This page is being written and will be here before anybody
-        can sign up.
-      </p>
-      <p>
-        Questions in the meantime to
-        <a href="mailto:hello@klaroly.com">hello@klaroly.com</a>.
-      </p>
-    </div>
+<BaseLayout title={`Terms | ${site.name}`} description="Klaroly terms of use." noindex={true}>
+  <PageHeader title="Terms" />
+  <div class="prose max-w-2xl">
+    <p>
+      Coming shortly. This page is being written and will be here before anybody
+      can sign up.
+    </p>
+    <p>
+      Questions in the meantime to
+      <a href={`mailto:${site.email}`}>{site.email}</a>.
+    </p>
   </div>
 </BaseLayout>

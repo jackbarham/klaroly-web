@@ -9,12 +9,6 @@
   --color-muted: #6b6759;
   --color-line: #e2ddd2;
   --color-accent: #8a5a3b;
-
-  --color-ink-dark: #ece9e2;
-  --color-paper-dark: #14140f;
-  --color-muted-dark: #9c968a;
-  --color-line-dark: #2c2b24;
-  --color-accent-dark: #c99873;
 }
 
 html {
@@ -33,13 +27,6 @@ body {
   color: var(--color-ink);
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background: var(--color-paper-dark);
-    color: var(--color-ink-dark);
-  }
-}
-
 ::selection {
   background: var(--color-accent);
   color: var(--color-paper);
@@ -55,11 +42,11 @@ body {
 }
 
 .prose p {
-  @apply mb-5 text-[1.0625rem] leading-relaxed text-[var(--color-muted)] dark:text-[var(--color-muted-dark)];
+  @apply mb-5 text-[1.0625rem] leading-relaxed text-[var(--color-muted)]
 }
 
 .prose p strong {
-  @apply font-semibold text-[var(--color-ink)] dark:text-[var(--color-ink-dark)];
+  @apply font-semibold text-[var(--color-ink)]
 }
 
 .prose ul {
@@ -67,22 +54,22 @@ body {
 }
 
 .prose li {
-  @apply relative pl-6 text-[1.0625rem] leading-relaxed text-[var(--color-muted)] dark:text-[var(--color-muted-dark)];
+  @apply relative pl-6 text-[1.0625rem] leading-relaxed text-[var(--color-muted)]
 }
 
 .prose li::before {
   content: "";
-  @apply absolute top-[0.7em] left-0 h-1.5 w-1.5 rounded-full bg-[var(--color-accent)] dark:bg-[var(--color-accent-dark)];
+  @apply absolute top-[0.7em] left-0 h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]
 }
 
 .prose li strong {
-  @apply font-semibold text-[var(--color-ink)] dark:text-[var(--color-ink-dark)];
+  @apply font-semibold text-[var(--color-ink)]
 }
 
 .prose a {
-  @apply underline decoration-[var(--color-accent)] decoration-2 underline-offset-4 hover:decoration-[3px] dark:decoration-[var(--color-accent-dark)];
+  @apply underline decoration-[var(--color-accent)] decoration-2 underline-offset-4 hover:decoration-[3px]
 }
 
 .prose em {
-  @apply text-[var(--color-muted)] italic dark:text-[var(--color-muted-dark)];
+  @apply text-[var(--color-muted)] italic
 }

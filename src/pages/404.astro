@@ -1,25 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import PageHeader from '../components/PageHeader.astro'
+import { site } from '../site'
 ---
 
 <BaseLayout
-  title="Page not found | Klaroly"
+  title={`Page not found | ${site.name}`}
   description="That page does not exist."
   noindex={true}
 >
-  <div class="mx-auto max-w-4xl px-5 sm:px-8">
-    <section class="pt-16 pb-2 sm:pt-24">
-      <h1 class="text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl">
-        Page not found
-      </h1>
-    </section>
-    <div class="prose max-w-2xl">
-      <p>
-        That page does not exist, which is either our fault or a typo. Try the
-        <a href="/">home page</a>, or email
-        <a href="mailto:hello@klaroly.com">hello@klaroly.com</a> if you were looking
-        for something specific.
-      </p>
-    </div>
+  <PageHeader title="Page not found" />
+  <div class="prose max-w-2xl">
+    <p>
+      That page does not exist, which is either our fault or a typo. Try the
+      <a href="/">home page</a>, or email
+      <a href={`mailto:${site.email}`}>{site.email}</a> if you were looking
+      for something specific.
+    </p>
   </div>
 </BaseLayout>
