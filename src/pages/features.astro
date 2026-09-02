@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import EarlyAccessForm from '../components/EarlyAccessForm.astro'
 
 const title = 'Features | Klaroly booking app for makeup artists'
 const description =
-  'Enquiries, a clash-aware calendar, rate cards, digital wedding makeup contracts, invoices, deposits and client notes. See what Klaroly does.'
+  'Enquiries, a clash-aware calendar, rate cards, digital wedding makeup contracts, invoices, deposits, automated emails and client notes. See what Klaroly does.'
 ---
 
 <BaseLayout title={title} description={description}>
@@ -23,16 +24,15 @@ const description =
     <div class="prose max-w-2xl">
       <h2>Enquiries</h2>
       <p>
-        Most bookings start as a message you read while your hands are full.
-        Klaroly gives enquiries their own place instead of leaving them in an
-        inbox.
+        Most bookings start as a message read while your hands are full. Klaroly
+        gives enquiries their own place instead of leaving them in an inbox.
       </p>
       <ul>
-        <li>Add an enquiry in a few taps: name, date, venue, how she found you</li>
+        <li>Add an enquiry in a few taps: name, date, venue, how they found you</li>
         <li>It goes on the calendar as a soft hold straight away</li>
         <li>
           Clash warnings cover enquiries, not just confirmed bookings, so you know
-          a date is getting busy before you promise it to somebody
+          a date is getting busy before you promise it to anybody
         </li>
         <li>Turn an enquiry into a booking without typing any of it again</li>
       </ul>
@@ -40,23 +40,27 @@ const description =
       <h2>Bookings and the calendar</h2>
       <p>One booking holds the whole job.</p>
       <ul>
-        <li>The bride, her contact details, and anybody else involved</li>
+        <li>The client, their contact details, and anybody else involved</li>
         <li>Trial date and wedding date, with times and call times</li>
         <li>The venue, with travel time and distance worked out for you</li>
         <li>What was agreed, what it costs, what has been paid</li>
         <li>List view or calendar view, whichever suits the moment</li>
       </ul>
 
-      <h2>Your rate card</h2>
+      <h2>Quotes and your rate card</h2>
       <p>Set your prices once and stop working them out on a calculator.</p>
       <ul>
         <li>
-          A line for every service you offer: bride, bridesmaid, mother of the
+          A line for every service you offer: bride, bridesmaids, mother of the
           bride, children, gents, whatever you call yours
         </li>
         <li>
           Travel, early starts and hotel nights as their own lines, because they
           are their own costs
+        </li>
+        <li>
+          Build a quote on your phone in a few taps and send it before you have
+          got back to the car
         </li>
         <li>Override any price on any booking when a job is not standard</li>
         <li>
@@ -69,9 +73,12 @@ const description =
       <p>The part most artists put off.</p>
       <ul>
         <li>A proper agreement, with your terms and the booking details filled in</li>
-        <li>Sent to the bride as a link, nothing for her to download or install</li>
-        <li>She reads it, types her full name, ticks the box, submits</li>
-        <li>Both of you get a signed PDF immediately</li>
+        <li>Sent as a link, nothing to download or install</li>
+        <li>They read it, type their full name, tick the box, submit</li>
+        <li>
+          Both sides get a signed PDF immediately, and a confirmation email goes
+          out automatically
+        </li>
         <li>
           A full record of when it was sent, opened and signed, kept in case it is
           ever needed
@@ -84,11 +91,11 @@ const description =
           Deposit on booking, balance before the day, which is how most artists
           already work
         </li>
+        <li>Generate an invoice from the booking, no re-typing</li>
         <li>Klaroly tracks what is outstanding and how close the date is</li>
         <li>Reminders go out on their own until it is paid, and stop when it is</li>
         <li>
-          Record a bank transfer in one tap, because most of your clients will pay
-          that way
+          Record a bank transfer in one tap, because most clients will pay that way
         </li>
         <li>
           Agreed to wait? Snooze the reminders without pretending the invoice is
@@ -96,24 +103,59 @@ const description =
         </li>
       </ul>
 
+      <h2>Emails that send themselves</h2>
+      <ul>
+        <li>
+          Enquiry acknowledgements, booking confirmations, trial reminders, balance
+          chasers
+        </li>
+        <li>Written once, in your words, then left to run</li>
+        <li>
+          Everything sent is logged against the booking, so you can see what went
+          out and when
+        </li>
+      </ul>
+
       <h2>Client notes and photos</h2>
       <ul>
         <li>Notes as a dated stream, so you can see how a booking developed</li>
-        <li>Skin type, allergies, sensitivities, the look she wants</li>
-        <li>Trial photos and wedding photos at full resolution, kept with the booking</li>
+        <li>Skin type, sensitivities, the look they want</li>
+        <li>
+          Trial photos and wedding photos at full resolution, kept with the booking
+        </li>
         <li>Add a reminder to any note</li>
       </ul>
 
-      <h2>On your phone, and on your desk</h2>
+      <h2>On your phone, and at your desk</h2>
       <p>
         Klaroly is one product with three faces: an iPhone app, an Android app,
-        and a web version for the desktop. The same data in all three.
+        and a desktop version in the browser. The same information in all three.
       </p>
       <p>
         The phone is for the ninety per cent that is tap, tap, done. The desktop
         is for setting up your templates and doing your month end, which nobody
         wants to do with their thumbs.
       </p>
+
+      <h2>What is coming next</h2>
+      <p>
+        We are building the booking, contract and invoice side first. After that:
+      </p>
+      <ul>
+        <li>
+          <strong>Card payments.</strong> Take a deposit or a balance by card, straight
+          from the invoice.
+        </li>
+        <li>
+          <strong>Deeper automations.</strong> More of the messages you send by hand,
+          sent for you.
+        </li>
+        <li>
+          <strong>Hair, and the rest of the wedding morning.</strong> Other people who
+          turn up with a car full of kit have close to the same problem.
+        </li>
+      </ul>
+      <p>Early access members get a say in the order.</p>
 
       <h2>What we are deliberately not doing</h2>
       <ul>
@@ -126,12 +168,12 @@ const description =
           Sections turn on and off, that is all.
         </li>
         <li>
-          <strong>Not something your clients log into.</strong> Your brides get a link
-          when they need one. Nobody is asked to create an account to book a face.
+          <strong>Not something your clients log into.</strong> They get a link when they
+          need one. Nobody is asked to create an account to book a face.
         </li>
       </ul>
-
-      <p><a href="/contact">Join the early access list</a></p>
     </div>
+
+    <EarlyAccessForm id="features" class="mt-2" />
   </div>
 </BaseLayout>
